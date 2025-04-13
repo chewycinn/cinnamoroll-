@@ -1,0 +1,21 @@
+body {
+  background: #ffdee9;
+  background: linear-gradient(to right, #ffdee9, #b5fffc);
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+}
+
+h1 {
+  font-size: 2em;
+  color: #333;
+  max-width: 600px;
+  margin: 0 auto;
+}
