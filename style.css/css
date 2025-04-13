@@ -2,7 +2,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Handlee', cursive;
   background: linear-gradient(135deg, #ffeef2, #fddde6);
   overflow: hidden;
   height: 100vh;
@@ -19,6 +19,7 @@ body {
   padding: 40px;
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(255, 182, 193, 0.4);
+  max-width: 600px;
 }
 
 #start-btn {
@@ -28,6 +29,7 @@ body {
   border: none;
   color: white;
   font-size: 16px;
+  font-family: 'Handlee', cursive;
   border-radius: 12px;
   cursor: pointer;
   transition: background 0.3s ease;
@@ -41,7 +43,7 @@ body {
 .container {
   position: relative;
   max-width: 700px;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.75);
   border-radius: 15px;
   padding: 30px;
   text-align: center;
@@ -71,4 +73,3 @@ canvas#heart-canvas {
   z-index: 0;
   pointer-events: none;
 }
-
