@@ -1,21 +1,74 @@
+/* General Layout */
 body {
-  background: #fce4ec;
-  font-family: 'Courier New', Courier, monospace;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #ffeef2, #fddde6);
+  overflow: hidden;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  margin: 0;
-  color: #880e4f;
+  color: #d6336c;
 }
 
-.container {
-  max-width: 600px;
-  padding: 20px;
+/* Start Screen */
+#start-screen {
   text-align: center;
+  background-color: rgba(255, 240, 245, 0.95);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(255, 182, 193, 0.4);
+}
+
+#start-btn {
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: #ffb6c1;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#start-btn:hover {
+  background-color: #ff9ab3;
+}
+
+/* Message Area */
+.container {
+  position: relative;
+  max-width: 700px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  z-index: 2;
+  box-shadow: 0 0 30px rgba(255, 182, 193, 0.3);
 }
 
 h1 {
-  font-size: 24px;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
   white-space: pre-wrap;
+  z-index: 2;
+  position: relative;
+  color: #c2185b;
 }
+
+/* Utility */
+.hidden {
+  display: none;
+}
+
+/* Heart Canvas */
+canvas#heart-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
