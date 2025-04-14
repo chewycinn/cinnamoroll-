@@ -12,16 +12,16 @@ body {
   align-items: center;
 }
 
-/* 🌷 Start Screen */
+/* 💌 Start Screen */
 #start-screen {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(255, 245, 250, 0.95);
+  background-color: rgba(255, 240, 245, 0.95);
   padding: 50px;
   border-radius: 20px;
-  box-shadow: 0 0 20px rgba(186, 104, 200, 0.3);
+  box-shadow: 0 0 20px rgba(255, 182, 193, 0.4);
   text-align: center;
   max-width: 600px;
   z-index: 3;
@@ -55,7 +55,7 @@ body {
   background-color: #f06292;
 }
 
-/* 💌 Main Message */
+/* 💕 Main Message */
 .container {
   position: relative;
   max-width: 720px;
@@ -76,12 +76,12 @@ h1 {
   position: relative;
 }
 
-/* 💖 Hide content before start */
+/* 💕 Hide content before start */
 .hidden {
   display: none;
 }
 
-/* 💕 Floating Hearts */
+/* 💖 Floating Hearts */
 canvas#heart-canvas {
   position: fixed;
   top: 0;
