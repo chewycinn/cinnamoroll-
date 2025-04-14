@@ -1,55 +1,59 @@
+// Hearts Animation: Floating hearts in the background
 const canvas = document.getElementById('heart-canvas');
 const ctx = canvas.getContext('2d');
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-let hearts = [];
+const hearts = [];
 
-function Heart() {
-  this.x = Math.random() * canvas.width;
-  this.y = canvas.height + Math.random() * 100;
-  this.size = Math.random() * 20 + 10;
-  this.speedY = Math.random() * 1 + 0.5;
-  this.alpha = Math.random() * 0.5 + 0.5;
-}
-
-Heart.prototype.draw = function () {
-  ctx.save();
-  ctx.globalAlpha = this.alpha;
-  ctx.fillStyle = '#ff69b4';
-  ctx.beginPath();
-  ctx.moveTo(this.x, this.y);
-  ctx.bezierCurveTo(this.x - this.size / 2, this.y - this.size / 2, this.x - this.size, this.y + this.size / 3, this.x, this.y + this.size);
-  ctx.bezierCurveTo(this.x + this.size, this.y + this.size / 3, this.x + this.size / 2, this.y - this.size / 2, this.x, this.y);
-  ctx.fill();
-  ctx.restore();
-};
-
-Heart.prototype.update = function () {
-  this.y -= this.speedY;
-  if (this.y < -this.size) {
-    this.y = canvas.height + Math.random() * 100;
+class Heart {
+  constructor() {
+    this.size = Math.random() * 5 + 5;
     this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.speedX = Math.random() * 1 - 0.5;
+    this.speedY = Math.random() * 1 - 0.5;
+    this.opacity = Math.random() * 0.5 + 0.3;
   }
-};
 
-function animate() {
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(255, 105, 180, ' + this.opacity + ')';
+    ctx.fill();
+    ctx.closePath();
+  }
+
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+
+    if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
+    if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
+
+    this.draw();
+  }
+}
+
+// Create hearts on the screen
+function createHearts() {
+  if (hearts.length < 100) {
+    hearts.push(new Heart());
+  }
+}
+
+// Update hearts on the canvas
+function animateHearts() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  hearts.forEach((heart) => {
+  createHearts();
+  hearts.forEach((heart, index) => {
     heart.update();
-    heart.draw();
+    if (heart.opacity <= 0) {
+      hearts.splice(index, 1);
+    }
   });
-  requestAnimationFrame(animate);
+  requestAnimationFrame(animateHearts);
 }
 
-for (let i = 0; i < 50; i++) {
-  hearts.push(new Heart());
-}
-
-animate();
-
-window.addEventListener('resize', () => {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-});
+animateHearts();
